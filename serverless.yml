@@ -1,0 +1,24 @@
+service: layers-Recetas
+# frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  lambdaHashingVersion: 20201221
+  region: us-east-1
+  environment:
+    DB_DIALECT: mariadb
+    DB_NAME: Biblioteca
+    DB_USERNAME: admin
+    DB_PASSWORD: caballo123
+    DB_HOST: biblioteca.cwkq0pqsl3z4.us-east-1.rds.amazonaws.com
+    DB_PORT: 3306
+
+layers:
+  CommonModelsDb:
+    path: layersCommonModelsDb
+
+functions:
+  hello:
+    handler: handler.hello
